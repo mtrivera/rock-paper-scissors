@@ -18,3 +18,8 @@ function getComputerChoice() {
   }
   return computerMove;
 }
+
+function getHumanChoice() {
+  return prompt('Please enter a move: rock, paper, scissors')
+        .trim().toLowerCase();
+}
