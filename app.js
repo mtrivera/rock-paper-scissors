@@ -47,7 +47,7 @@ function handlePaperRules(humanChoice, computerChoice) {
   }
 }
 
-function handleScissorRules(humanChoice, computerChoice) {
+function handleScissorsRules(humanChoice, computerChoice) {
   if (humanChoice === 'scissors' && computerChoice === 'scissors') {
     return 'Tied! Scissors vs Scissors';
   } else if (humanChoice === 'scissors' && computerChoice === 'rock') {
