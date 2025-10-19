@@ -36,3 +36,13 @@ function handleRockRules(humanChoice, computerChoice) {
     return 'You Win! Rock beats Scissors';
   }
 }
+
+function handlePaperRules(humanChoice, computerChoice) {
+  if (humanChoice === 'paper' && computerChoice === 'paper') {
+    return 'Tied! Paper vs Paper';
+  } else if (humanChoice === 'paper' && computerChoice === 'scissors') {
+    return 'You Lose! Scissors beats Paper';
+  } else if (humanChoice === 'paper' && computerChoice === 'rock') {
+    return 'You Win! Paper beats ';
+  }
+}
