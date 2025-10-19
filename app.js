@@ -26,3 +26,13 @@ function getHumanChoice() {
   return prompt('Please enter a move: rock, paper, scissors')
         .trim().toLowerCase();
 }
+
+function handleRockRules(humanChoice, computerChoice) {
+  if (humanChoice === 'rock' && computerChoice === 'rock') {
+    return 'Tied! Rock vs Rock';
+  } else if (humanChoice === 'rock' && computerChoice === 'paper') {
+    return 'You Lose! Paper beats Rock';
+  } else if (humanChoice === 'rock' && computerChoice === 'scissors') {
+    return 'You Win! Rock beats Scissors';
+  }
+}
