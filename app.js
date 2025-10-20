@@ -20,13 +20,7 @@ function playGame(gameRounds = 5) {
     }
   }
 
-  if (humanScore > computerScore) {
-      console.log((`You Win! *Final Score* Human: ${humanScore} Computer: ${computerScore}`));
-  } else if (humanScore < computerScore) {
-      console.log((`You Lose! *Final Score* Human: ${humanScore} Computer: ${computerScore}`));
-  } else {
-      console.log((`Tie Match! *Final Score* Human: ${humanScore} Computer: ${computerScore}`));
-  }
+  console.log(calcFinalScore(humanScore, computerScore));
 }
 
 function getComputerChoice() {
@@ -106,4 +100,14 @@ function playRound(humanChoice, computerChoice) {
   }
 
   return winnerName;
+}
+
+function calcFinalScore(humanScore, computerScore) {
+  if (humanScore > computerScore) {
+    return `You Won! *Final Score* Human: ${humanScore} Computer: ${computerScore}`;
+  } else if (humanScore < computerScore) {
+    return `You Lost! *Final Score* Human: ${humanScore} Computer: ${computerScore}`;
+  } else {
+    return `Tie Match! *Final Score* Human: ${humanScore} Computer: ${computerScore}`;
+  }
 }
