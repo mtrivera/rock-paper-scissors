@@ -2,6 +2,26 @@
 
 let humanScore = 0;
 let computerScore = 0;
+let roundWinner;
+
+let humanSelection = getHumanChoice();
+let computerSelection = getComputerChoice();
+
+roundWinner = playRound(humanSelection, computerSelection);
+
+if (roundWinner === 'human') {
+  humanScore++;
+} else if (roundWinner === 'computer') {
+  computerScore++;
+}
+
+if (humanScore > computerScore) {
+  console.log((`You Win! *Final Score* Human: ${humanScore} Computer: ${computerScore}`));
+} else if (humanScore < computerScore) {
+  console.log((`You Lose! *Final Score* Human: ${humanScore} Computer: ${computerScore}`));
+} else {
+  console.log((`Tie Match! *Final Score* Human: ${humanScore} Computer: ${computerScore}`));
+}
 
 function getComputerChoice() {
   const randomNum = Math.floor(Math.random() * 3) + 1;
