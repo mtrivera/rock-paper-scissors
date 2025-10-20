@@ -56,3 +56,28 @@ function handleScissorsRules(humanChoice, computerChoice) {
     return 'You Win! Scissors beats Paper';
   }
 }
+
+function playRound(humanChoice, computerChoice) {
+  let winnerName;
+  let ruleOutcomeMessage;
+
+  if (humanChoice === 'rock') {
+    ruleOutcomeMessage = handleRockRules(humanChoice, computerChoice);
+  } else if (humanChoice === 'paper') {
+    ruleOutcomeMessage = handlePaperRules(humanChoice, computerChoice);
+  } else if (humanChoice === 'scissors') {
+    ruleOutcomeMessage = handleScissorsRules(humanChoice, computerChoice);
+  }
+
+  console.log(ruleOutcomeMessage);
+
+  if (ruleOutcomeMessage.includes('Win')) {
+    winnerName = 'human';
+  } else if (ruleOutcomeMessage.includes('Lose')) {
+    winnerName = 'computer';
+  } else if (ruleOutcomeMessage.includes('Tie')) {
+    winnerName = 'tie';
+  }
+
+  return winnerName;
+}
