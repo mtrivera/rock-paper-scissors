@@ -3,6 +3,7 @@
 const GAME_ROUNDS = 5;
 let humanScore = 0;
 let computerScore = 0;
+let gameWinner;
 let roundWinner;
 
 for (let roundCount = GAME_ROUNDS; roundCount > 0; roundCount--) {
@@ -15,7 +16,8 @@ for (let roundCount = GAME_ROUNDS; roundCount > 0; roundCount--) {
   }
 }
 
-console.log(calcFinalScore(humanScore, computerScore));
+gameWinner = calcFinalScore(humanScore, computerScore);
+console.log(displayFinalScore(gameWinner, humanScore, computerScore));
 
 function playGame() {
   let humanSelection = getHumanChoice();
@@ -105,10 +107,14 @@ function playRound(humanChoice, computerChoice) {
 
 function calcFinalScore(humanScore, computerScore) {
   if (humanScore > computerScore) {
-    return `You Won! *Final Score* Human: ${humanScore} Computer: ${computerScore}`;
+    return 'You Won!';
   } else if (humanScore < computerScore) {
-    return `You Lost! *Final Score* Human: ${humanScore} Computer: ${computerScore}`;
+    return 'You Lost!';
   } else {
-    return `Tie Match! *Final Score* Human: ${humanScore} Computer: ${computerScore}`;
+    return 'Tie Match!';
   }
+}
+
+function displayFinalScore(gameResultMessage, humanScore, computerScore) {
+  return `${gameResultMessage} *Final Score* Human: ${humanScore} Computer: ${computerScore}`
 }
