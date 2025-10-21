@@ -1,26 +1,27 @@
 "use strict";
 
+const GAME_ROUNDS = 5;
 let humanScore = 0;
 let computerScore = 0;
 let roundWinner;
 
-playGame();
+for (let roundCount = GAME_ROUNDS; roundCount > 0; roundCount--) {
+  roundWinner = playGame();
 
-function playGame(gameRounds = 5) {
-  for (let roundCount = gameRounds; roundCount > 0; roundCount--) {
-    let humanSelection = getHumanChoice();
-    let computerSelection = getComputerChoice();
-
-    roundWinner = playRound(humanSelection, computerSelection);
-
-    if (roundWinner === 'human') {
+  if (roundWinner === 'human') {
       humanScore++;
-    } else if (roundWinner === 'computer') {
+  } else if (roundWinner === 'computer') {
       computerScore++;
-    }
   }
+}
 
-  console.log(calcFinalScore(humanScore, computerScore));
+console.log(calcFinalScore(humanScore, computerScore));
+
+function playGame() {
+  let humanSelection = getHumanChoice();
+  let computerSelection = getComputerChoice();
+
+  return playRound(humanSelection, computerSelection);
 }
 
 function getComputerChoice() {
