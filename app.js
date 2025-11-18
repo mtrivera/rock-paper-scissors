@@ -14,30 +14,42 @@ game.appendChild(rockBtn);
 game.appendChild(paperBtn);
 game.appendChild(scissorsBtn);
 
+game.addEventListener('click', playGame, {once: true});
+
 //const GAME_ROUNDS = 5;
-let humanScore = 0;
-let computerScore = 0;
-let gameWinner;
-let roundWinner;
+
+// let gameWinner;
+// let roundWinner;
 
 //for (let roundCount = GAME_ROUNDS; roundCount > 0; roundCount--) {
-roundWinner = playGame();
+// roundWinner = playGame();
 
-if (roundWinner === 'human') {
-    humanScore++;
-} else if (roundWinner === 'computer') {
-    computerScore++;
-}
+// if (roundWinner === 'human') {
+//     humanScore++;
+// } else if (roundWinner === 'computer') {
+//     computerScore++;
+// }
 //}
 
-gameWinner = calcFinalScore(humanScore, computerScore);
-console.log(displayFinalScore(gameWinner, humanScore, computerScore));
+// gameWinner = calcFinalScore(humanScore, computerScore);
+// console.log(displayFinalScore(gameWinner, humanScore, computerScore));
 
-function playGame() {
-  let humanSelection = getHumanChoice();
+function playGame(event) {
+  let humanScore = 0, computerScore = 0;
+  let gameWinner, roundWinner;
+  let humanSelection = event.target.textContent;
   let computerSelection = getComputerChoice();
 
-  return playRound(humanSelection, computerSelection);
+  roundWinner = playRound(humanSelection, computerSelection);
+
+  if (roundWinner === 'human') {
+    humanScore++;
+  } else if (roundWinner === 'computer') {
+    computerScore++;
+  }
+  
+  gameWinner = calcFinalScore(humanScore, computerScore);
+  console.log(displayFinalScore(gameWinner, humanScore, computerScore));
 }
 
 function getComputerChoice() {
@@ -59,10 +71,10 @@ function getComputerChoice() {
   return computerMove;
 }
 
-function getHumanChoice() {
-  return prompt('Please enter a move: rock, paper, scissors')
-        .trim().toLowerCase();
-}
+// function getHumanChoice() {
+//   return prompt('Please enter a move: rock, paper, scissors')
+//         .trim().toLowerCase();
+// }
 
 function handleRockRules(humanChoice, computerChoice) {
   if (humanChoice === 'rock' && computerChoice === 'rock') {
