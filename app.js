@@ -1,5 +1,19 @@
 "use strict";
 
+const game = document.querySelector('#game');
+
+const rockBtn = document.createElement('button');
+const paperBtn = document.createElement('button');
+const scissorsBtn = document.createElement('button');
+
+rockBtn.textContent = 'rock';
+paperBtn.textContent = 'paper';
+scissorsBtn.textContent = 'scissors';
+
+game.appendChild(rockBtn);
+game.appendChild(paperBtn);
+game.appendChild(scissorsBtn);
+
 //const GAME_ROUNDS = 5;
 let humanScore = 0;
 let computerScore = 0;
